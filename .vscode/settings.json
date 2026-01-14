@@ -1,0 +1,14 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.espIdfPath": "/Users/ihorcher/esp/esp-idf",
+  "idf.pythonInstallPath": "/Users/ihorcher/.local/bin/python",
+  "idf.openOcdConfigs": [
+    "board/esp32c3-builtin.cfg"
+  ],
+  "idf.port": "/dev/tty.usbmodem11201",
+  "idf.toolsPath": "/Users/ihorcher/.espressif",
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32c3"
+  },
+  "idf.flashType": "JTAG"
+}
