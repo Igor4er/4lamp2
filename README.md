@@ -9,8 +9,6 @@
 No apps. No buttons. No rituals.  
 Just logic.
 
----
-
 ## 🔧 What It Does
 
 4LAMP2 continuously monitors three things:
@@ -25,8 +23,6 @@ The external lamp is turned **ON** only when:
 
 If *either* condition fails — the light turns **OFF**.
 
----
-
 ## Hardware
 
 - **ESP32**
@@ -36,8 +32,6 @@ If *either* condition fails — the light turns **OFF**.
 Default pins:
 - External lamp: **GPIO 7**
 - Onboard LED: **GPIO 8**
-
----
 
 ## Presence Detection (No Cloud, No Tracking)
 
@@ -52,8 +46,6 @@ If your phone stops responding for **45 minutes**, it is considered *gone*.
 > ⚠️ iOS devices usually stop responding to pings when the screen is off.  
 > Android *may* work better, but hasn’t been tested.
 
----
-
 ## Internet-Aware Auto Shutoff
 
 If internet connectivity disappears for longer than ~90 seconds:
@@ -63,8 +55,6 @@ This is intentional.
 
 Some houses become *unlivable* at night when the internet is down and a bright light stays on forever.  
 4LAMP2 respects sleep.
-
----
 
 ## ⚙️ Smart Ping Management
 
@@ -76,8 +66,6 @@ To avoid unnecessary network spam:
 
 This keeps the system responsive *without* being noisy.
 
----
-
 ## Architecture Highlights
 
 - Event-driven design using **FreeRTOS Event Groups**
@@ -88,8 +76,6 @@ This keeps the system responsive *without* being noisy.
 - Infinite ping sessions with timeout-based validation
 - Safe recovery from Wi-Fi disconnects and IP loss
 - really really "hope it works" logic.
-
----
 
 ## "Smart" Devices
 
@@ -105,8 +91,6 @@ It’s just remote-controlled.
 It observes reality and reacts.
 
 That’s the whole point.
-
----
 
 **4LAMP2 doesn’t ask you what to do.  
 It already knows.**
