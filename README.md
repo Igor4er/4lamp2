@@ -1,5 +1,7 @@
 # 4LAMP2 (aka *flamp2*)
 
+![4LAMP2 Example](4lamp_example.gif)
+
 **An actually-smart lighting controller for ESP32, rewritten from scratch and upgraded to behave like a grown-up system.**
 
 4LAMP2 turns your light **on only when two conditions are met**:
