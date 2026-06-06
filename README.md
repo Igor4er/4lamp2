@@ -4,30 +4,32 @@
 
 **An actually-smart lighting controller for ESP32, rewritten from scratch and upgraded to behave like a grown-up system.**
 
-4LAMP2 turns your light **on only when two conditions are met**:
-1. Your home has working internet access
-2. *You* are physically present (your phone responds to local network pings)
+4LAMP2 turns your light **on** when two conditions are met:
+1. Your home has working **internet access**
+2. Your **phone is physically present** at home (phone responds to local network pings)
 
-No apps. No buttons. No rituals.  
-Just logic.
+No eldritch apps and configs, it's an install once forget forver device.
 
-## 🔧 What It Does
+## "Smart" Devices
 
-4LAMP2 continuously monitors three things:
+If a light:
+- needs an app
+- needs you to press a button
+- needs cloud servers to exist
 
-- **Wi-Fi state** — connects, reconnects, and survives drops
-- **Internet reachability** — via ICMP ping to a public DNS server
-- **Phone presence** — via ICMP ping to your phone’s local IP
+then it’s not smart. It’s just remote-controlled.
 
-The external lamp is turned **ON** only when:
-- Internet is reachable  
-- Your phone is reachable  
+**4LAMP2 is automated.**  
+It observes and reacts and that's why i it's so cool.
 
-If *either* condition fails — the light turns **OFF**.
+4LAMP continuously monitors three things:
+
+- **Wi-Fi state** connects, reconnects, and survives drops
+- **Internet reachability** via ICMP ping to a public DNS server
+- **Phone presence** via ICMP ping to your phone’s local IP
 
 ## Hardware
-
-- **ESP32**
+- **ESP32** (C3, but compatibe with any of C and S series)
 - External load via GPIO (relay or N-channel MOSFET)
 - Onboard LED used for boot indication
 
@@ -35,13 +37,10 @@ Default pins:
 - External lamp: **GPIO 7**
 - Onboard LED: **GPIO 8**
 
-## Presence Detection (No Cloud, No Tracking)
+## Local Presence Detection
 
-Your phone is detected purely by:
-- Local network ICMP ping
-- No apps
-- No Bluetooth
-- No vendor lock-in
+Your phone is detected purely by ICMP ping
+No need to install shady apps or connect to unknown bluetooth devices.
 
 If your phone stops responding for **45 minutes**, it is considered *gone*.
 
@@ -53,16 +52,9 @@ If your phone stops responding for **45 minutes**, it is considered *gone*.
 If internet connectivity disappears for longer than ~90 seconds:
 - The lamp shuts off automatically
 
-This is intentional.
+This is intentional and should work like that, at least in my house where internet is turned off at night.
 
-Some houses become *unlivable* at night when the internet is down and a bright light stays on forever.  
-4LAMP2 respects sleep.
-
-## ⚙️ Smart Ping Management
-
-To avoid unnecessary network spam:
-
-- Phone pings run aggressively when presence matters
+To avoid unnecessary network spam, phone pings run aggressively when presence matters:
 - After **15 minutes of continuous presence**, phone pings are reduced
 - Pings resume automatically when needed again
 
@@ -78,21 +70,6 @@ This keeps the system responsive *without* being noisy.
 - Infinite ping sessions with timeout-based validation
 - Safe recovery from Wi-Fi disconnects and IP loss
 - really really "hope it works" logic.
-
-## "Smart" Devices
-
-If a light:
-- needs an app
-- needs you to press a button
-- needs cloud servers to exist
-
-…it’s not smart.  
-It’s just remote-controlled.
-
-**4LAMP2 is automated.**  
-It observes reality and reacts.
-
-That’s the whole point.
 
 **4LAMP2 doesn’t ask you what to do.  
 It already knows.**
